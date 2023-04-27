@@ -1,34 +1,17 @@
-function updatePhoneNumber(isIncrease){
-    const phoneNumberField=document.getElementById('phone-number-field');
-    const phoneNumberString=phoneNumberField.value;
-    const previousPhoneNumber=parseInt(phoneNumberString);
-    let newPhoneNumber;
-    if(isIncrease==true){
-        newPhoneNumber=previousPhoneNumber+1;
-    }
-     else{
-        newPhoneNumber=previousPhoneNumber-1;
-     }
-    phoneNumberField.value=newPhoneNumber;
-    return newPhoneNumber;
-}
-
-function updatePhoneTotalPrice(newPhoneNumber){
-    const newPhoneTotalPrice=1219*newPhoneNumber;
-    const phoneTotalElement=document.getElementById('phone-total');
-    phoneTotalElement.innerText=newPhoneTotalPrice; 
-    return newPhoneTotalPrice;
-
+function updatePhoneTotal(phoneNumber){
+    const phoneTotal=1219*phoneNumber;
+    const updatePhoneTotalField=document.getElementById('phone-total');
+    updatePhoneTotalField.innerText=phoneTotal;
 }
 
 document.getElementById('btn-phone-plus').addEventListener('click',function(){
-   const newPhoneNumber=updatePhoneNumber(true);
-    updatePhoneTotalPrice(newPhoneNumber);
-    calculateSubTotal();
+   const phoneNumber= updateProductNumber('phone-field',true);
+   updatePhoneTotal(phoneNumber);
+  calculateTotal();
 })
 
 document.getElementById('btn-phone-minus').addEventListener('click',function(){
-   const newPhoneNumber=updatePhoneNumber(false);
-   updatePhoneTotalPrice(newPhoneNumber);
-   calculateSubTotal();
+    const phoneNumber=updateProductNumber('phone-field',false);
+    updatePhoneTotal(phoneNumber);
+    calculateTotal();
 })
