@@ -12,6 +12,7 @@ document.getElementById('btn-phone-plus').addEventListener('click',function(){
 
 document.getElementById('btn-phone-minus').addEventListener('click',function(){
     const phoneNumber=updateProductNumber('phone-field',false);
+    
     updatePhoneTotal(phoneNumber);
     calculateTotal();
 })

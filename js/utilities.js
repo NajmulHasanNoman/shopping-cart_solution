@@ -9,7 +9,12 @@ function updateProductNumber(elementId,Isincrease){
     else{
         newProductNumber=previousProductNumber-1;
     }
+    if(newProductNumber<0){
+        alert('phone number cant be negative')
+        return 0;
+    }
     productNumberField.value=newProductNumber;
+    
     return newProductNumber;
 }
 
